@@ -25,9 +25,6 @@ app.use(cors({
 app.use("/api/auth", authRoutes);
 app.use("api/message", messageRoutes);
 
-app.use(express.json({ limit: "50mb" }));
-app.use(express.urlencoded({ limit: "50mb", extended: true }));
-
 app.listen(PORT, () => {
     console.log("Server is running on PORT:" + PORT);
     connectDB();

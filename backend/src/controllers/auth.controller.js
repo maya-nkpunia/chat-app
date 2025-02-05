@@ -93,7 +93,7 @@ export const updateProfile = async (req, res) => {
       return res.status(400).json({message: "Profile pic required"});
     }
 
-    const uploadRespnse = await cloudinary.uploader.upoad(profilePic);
+    const uploadRespnse = await cloudinary.uploader.upload(profilePic);
     const updatedUser = await User.findByIdAndUpdate(userId, {profilePic:uploadRespnse.secure_url}, {new:true});
 
     res.status(200).json(updatedUser);
